@@ -1,0 +1,43 @@
+name: .Net Vulnerable
+description: Check for vulnerable .NET packages
+author: Gavan Lamb
+
+branding:
+  icon: 'shield'
+  color: 'orange'
+
+inputs:
+  add-pr-comment:
+    description: A flag to indicate whether to add a comment to the associated PR with a report of the vulnerable packages. If this is enabled and the action is executed for a non-pull-request build then the comment will not be added.
+    required: false
+  pr-comment-name:
+    description: A unique suffix for the pull-request comment for the current run.
+    required: false
+  add-check-run:
+    description: A flag to indicate whether to add a check run, to the action, containing a report of the vulnerable packages.
+    required: false
+  fail-check-run-if-contains-vulnerable:
+    description: A flag to indicate whether the check run should fail if there are any direct dependencies that are vulnerable. In order for this to work the check run needs to be enabled by setting `add-check-run` to be true.
+    required: false
+  check-run-name:
+    description: A unique name for the check run tab.
+    required: false
+  include-transitive-dependencies:
+    description: A flag to indicate whether to include transitive and top-level packages.
+    required: false
+  nuget-sources:
+    description: The NuGet sources to use when searching for newer packages. To specify more than one use a comma separated value.
+    required: false
+  nuget-config-file-path:
+    description: The path to the NuGet config file to use.
+    required: false
+  frameworks:
+    description: The framework or frameworks to run the command for. To specify more than one use a comma separated value.
+    required: false
+  target:
+    description: The project or solution file to target. If a file is not specified, the command will search the current directory for one.
+    required: false
+
+runs:
+  using: node20
+  main: dist/index.js
