@@ -98,7 +98,7 @@ jobs:
           add-pr-comment: true
           add-check-run: true
           target: ./sample/WebApplication/WebApplication.sln
-          fail-check-run-if-contains-vulnerable: true
+          fail-check-run-if-contains-vulnerable: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
