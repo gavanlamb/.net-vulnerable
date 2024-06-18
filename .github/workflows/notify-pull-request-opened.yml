@@ -1,0 +1,24 @@
+name: Notify PR opened
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+
+concurrency:
+  cancel-in-progress: false
+  group: pull-request-opened-${{ github.ref_name }}
+
+jobs:
+  update:
+    name: Send notification
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify Google Chat
+        if: ${{ always() }}
+        uses: SimonScholz/google-chat-action@main
+        with:
+          webhookUrl: '${{ secrets.GOOGLE_CHAT_WEBHOOK_URL }}'
+          title: 'Pull request opened'
+          subtitle: ${{ github.event.pull_request.title }}

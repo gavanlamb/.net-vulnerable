@@ -1,0 +1,24 @@
+name: 'Remove environment'
+
+on:
+  pull_request:
+    types:
+      - closed
+
+concurrency:
+  cancel-in-progress: false
+  group: environment-remove-${{ github.ref_name }}
+
+env:
+  environment: Preview${{ github.event.pull_request.number }}
+
+jobs:
+  remove:
+    name: Remove environment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete the ${{ env.environment }} environment
+        uses: strumwolf/delete-deployment-environment@v3.0.0
+        with:
+          token: ${{ secrets.PAT_GITHUB_ACTIONS }}
+          environment: ${{ env.environment }}
