@@ -1,5 +1,5 @@
 /**
- * Error indicating a dotnet outdated command problem
+ * Error indicating a dotnet vulnerable command problem
  */
 class DotnetCommandProblemError extends Error {
     projectName: string;

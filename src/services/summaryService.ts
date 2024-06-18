@@ -14,12 +14,14 @@ import {
     info,
     debug
 } from "@actions/core";
-import { Vulnerability } from '../types/vulnerability'
+import {
+    Vulnerability
+} from '../types/vulnerability';
 
 function getSeverity(
     vulnerabilities: Vulnerability[]): string
 {
-    const severityStatements:string[] = [];
+    const severityStatements: string[] = [];
 
     for (const vulnerability of vulnerabilities)
     {

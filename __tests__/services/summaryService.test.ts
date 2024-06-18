@@ -791,7 +791,7 @@ describe("getSummaryBody", () => {
         expect(result).toContain("| project.csproj | Transitive | 4 |");
     });
 
-    it("should return a summary markdown with the distinct count when multiple frameworks have the same outdated packages", async () => {
+    it("should return a summary markdown with the distinct count when multiple frameworks have the same vulnerable packages", async () => {
         const configuration: Configuration = {
             parameters: "--vulnerable",
             version: 1,
