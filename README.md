@@ -48,6 +48,7 @@ steps:
   - name: Restore
     run: dotnet restore
   - name: My action
+    uses: gavanlamb/.net-vulnerable@latest
     with:
       add-pr-comment: true
       add-check-run: true
@@ -62,7 +63,7 @@ steps:
   - name: Restore
     run: dotnet restore
   - name: My action
-    uses: gavanlamb/.net-vulnerable
+    uses: gavanlamb/.net-vulnerable@latest
     with:
       add-pr-comment: true
       add-check-run: true
@@ -72,7 +73,7 @@ steps:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   - name: My action
-    uses: gavanlamb/.net-vulnerable
+    uses: gavanlamb/.net-vulnerable@latest
     with:
       add-pr-comment: true
       add-check-run: true
