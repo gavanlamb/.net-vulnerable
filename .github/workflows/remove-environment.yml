@@ -20,5 +20,5 @@ jobs:
       - name: Delete the ${{ env.environment }} environment
         uses: strumwolf/delete-deployment-environment@v3.0.0
         with:
-          token: ${{ secrets.PAT_GITHUB_ACTIONS }}
+          token: ${{ secrets.GH_ACTIONS_PAT }}
           environment: ${{ env.environment }}
