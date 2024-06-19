@@ -126,7 +126,7 @@ jobs:
           git_tag_gpgsign: true
       - name: Create and push tag
         run: |
-          git tag -s ${{ env.tag }} -m "${{ env.tag }}}"
+          git tag -s ${{ env.tag }} -m "${{ env.tag }}"
           git push origin tag ${{ env.tag }}
       - name: Generate changelog
         id: changelog
