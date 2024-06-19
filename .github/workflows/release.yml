@@ -122,6 +122,8 @@ jobs:
         with:
           gpg_private_key: ${{ secrets.GH_GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.GH_GPG_PRIVATE_KEY_PASSWORD }}
+          git_user_signingkey: true
+          git_tag_gpgsign: true
       - name: Create and push tag
         run: |
           git tag -s ${{ env.tag }} -m "${{ env.tag }}}"
